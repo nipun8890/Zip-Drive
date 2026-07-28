@@ -1,0 +1,192 @@
+/* src/components/common/LocationPickerModal/locationPickerModal.css */
+.location-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.location-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.location-modal.map-modal {
+  max-width: 800px;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.location-modal-header {
+  background: linear-gradient(135deg, #01d28e 0%, #018f61 100%);
+  color: white;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.location-modal-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.location-modal-header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.location-modal-body {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fafafa;
+}
+
+.location-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.location-option-btn:hover:not(:disabled) {
+  border-color: #01d28e;
+  background: #f0fdf7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(1, 210, 142, 0.2);
+}
+
+.location-option-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.option-icon {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0fdf7;
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.location-option-btn:hover:not(:disabled) .option-icon {
+  background: #01d28e;
+  color: white;
+  transform: scale(1.1);
+}
+
+.option-content h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.option-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.availability-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: white;
+}
+
+.availability-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.availability-close-button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.availability-close-button:hover {
+  color: #01d28e;
+}
+
+.availability-modal-confirm-button {
+  width: calc(100% - 48px);
+  margin: 16px 24px 24px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #01d28e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.availability-modal-confirm-button:hover {
+  background: #019c6b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .location-modal {
+    max-width: 100%;
+    margin: 0 10px;
+  }
+  .location-modal-header {
+    padding: 24px 20px;
+  }
+  .location-option-btn {
+    padding: 16px;
+    gap: 16px;
+  }
+  .option-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,277 @@
+/* Base styles for navbar */
+
+.scroll-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Logo styling */
+.scroll-navbar-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.btn-custom {
+  background-color: #01d28e;
+  border-color: #01d28e;
+  color: white; /* or another text color for contrast */
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active {
+  background-color: #019c6b; /* slightly darker shade for hover/focus/active */
+  border-color: #019c6b;
+  color: white;
+}
+/* Main nav links */
+.scroll-navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  z-index: 1100;
+  box-sizing: border-box;
+}
+
+/* Individual nav links */
+.scroll-navbar-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s, border-left 0.3s;
+  pointer-events: auto;
+  padding-left: 1rem;
+  border-left: 4px solid transparent;
+  display: block;
+  outline: none;
+}
+
+.scroll-navbar-links li a:hover,
+.scroll-navbar-links li a:focus {
+  color: #0d6efd;
+}
+
+.scroll-navbar-links li a.active {
+  border-left-color: #10d28e;
+  color: #10d28e; /* Optional: text color also changes */
+  background: #e6f9f1; /* Optional: highlight background */
+}
+
+/* Login/Profile Section */
+.scroll-navbar-login {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar styling */
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 2px solid #10d28e;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Profile dropdown menu */
+.profile-menu-outside {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  min-width: 230px; /* Increased width for long text */
+  max-width: 90vw; /* Keeps responsive on mobile */
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  list-style: none;
+  z-index: 999;
+  animation: fadeIn 0.2s ease-in-out;
+  overflow-x: hidden;
+}
+
+.profile-menu-outside::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.profile-menu-outside li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap; /* Prevents breaking into 2 lines */
+  transition: background 0.15s;
+}
+
+.profile-menu-outside li:hover {
+  background-color: #f7f7f7;
+  color: #000;
+}
+
+.menu-icon {
+  min-width: 22px;
+}
+
+/* Hamburger icon: hidden by default */
+.scroll-navbar-hamburger {
+  display: none;
+  cursor: pointer;
+  margin-left: 1.2rem;
+  z-index: 1200;
+}
+
+/* Responsive adjustments */
+
+/* For screen width max 1100px */
+@media (max-width: 1100px) {
+  .scroll-navbar {
+    padding: 1rem 1.2rem;
+  }
+  .scroll-navbar-links {
+    gap: 1.4rem;
+  }
+}
+
+/* For screen width max 900px */
+@media (max-width: 900px) {
+  .scroll-navbar-links {
+    gap: 1rem;
+  }
+  .scroll-navbar-logo img {
+    height: 38px;
+  }
+  .profile-avatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* MOBILE / TABLET STYLES */
+@media (max-width: 700px) {
+  .scroll-navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.7rem 0.5rem;
+  }
+
+  .scroll-navbar-hamburger {
+    display: flex;
+    align-items: center;
+    z-index: 1200;
+  }
+
+  /* Hide nav links by default on mobile */
+  .scroll-navbar-links {
+    position: absolute;
+    top: 62px;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100%; /* Changed from 100vw to prevent potential scroll */
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 14px 14px;
+    padding: 0.5rem 0;
+    display: none;
+    animation: fadeIn 0.18s;
+    z-index: 1500; /* Increased for guaranteed overlay */
+    box-sizing: border-box;
+  }
+  .scroll-navbar-links.active {
+    display: flex;
+    pointer-events: auto;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .scroll-navbar-links li {
+    width: 100%;
+  }
+  .scroll-navbar-links li a {
+    padding: 1rem 2.5rem;
+    width: 100%;
+    display: block;
+    font-size: 1.08rem;
+    pointer-events: auto;
+  }
+  .scroll-navbar-links li a:hover {
+    background: #f2f2f2;
+    color: #0d6efd;
+  }
+
+  .scroll-navbar-login {
+    margin-left: 0.7rem;
+  }
+}
+
+/* Adjust profile dropdown for tiny screens */
+@media (max-width: 550px) {
+  .profile-menu-outside {
+    right: 5px;
+    width: 94vw; /* Full width for small screens */
+    min-width: unset;
+    max-width: 98vw;
+    padding: 8px 0.7rem;
+  }
+  .profile-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Smaller logo for tiny screens */
+@media (max-width: 410px) {
+  .scroll-navbar-logo img {
+    height: 28px;
+    max-width: 70vw;
+  }
+}
+
+/* Modal overlay fix for mobile if needed */
+@media (max-width: 700px) {
+  .modal-wrapper {
+    width: 97vw !important;
+    left: 1vw !important;
+  }
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

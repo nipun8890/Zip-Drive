@@ -1,0 +1,906 @@
+/* ==================== BASE STYLES ==================== */
+.myCarsScopeWrapper {
+  isolation: isolate;
+}
+
+.myCarsPage {
+  padding: 2rem;
+  background: #f8f9fa;
+  min-height: 100vh;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pageHeader h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ==================== EMPTY STATE ==================== */
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.emptyState p:first-of-type {
+  font-size: 1.25rem;
+  color: #212529;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.emptySubtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* ==================== CARS GRID ==================== */
+
+.carsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ==================== CAR CARD ==================== */
+
+.carCard {
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
+}
+
+.carCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carImageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #e9ecef;
+}
+
+.carImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carImgPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 1rem;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.carImgPlaceholder span:first-child {
+  font-size: 3rem;
+}
+
+.carInfo {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.carTitle {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #212529;
+  font-weight: 600;
+}
+
+.tripTypeBadges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badgeSelfdrive {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badgeIntercity {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.carDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detailLabel {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detailValue {
+  font-size: 1rem;
+  color: #212529;
+  font-weight: 600;
+}
+
+.priceItem .detailValue {
+  color: #10b981;
+  font-size: 1.125rem;
+}
+
+.detailValuePrice::before {
+  content: none !important;
+}
+
+.priceItem .detailValue::before {
+  content: none !important;
+}
+
+.availabilityBox {
+  padding: 0.75rem 1rem;
+  background: #e8f5f1;
+  border-radius: 6px;
+  border-left: 3px solid #10b981;
+}
+
+.availabilityLabel {
+  font-size: 0.75rem;
+  color: #0d9668;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.availabilityDates {
+  font-size: 0.875rem;
+  color: #212529;
+  font-weight: 500;
+}
+
+.documentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.docItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.docLabel {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.docValue {
+  color: #212529;
+  font-weight: 600;
+}
+
+/* ==================== ACTION BUTTONS ==================== */
+
+.carActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid #dee2e6;
+}
+
+.actionBtn {
+  padding: 0.875rem;
+  border: none;
+  background: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border-right: 1px solid #dee2e6;
+}
+
+.actionBtn:last-child {
+  border-right: none;
+}
+
+.detailsBtn {
+  color: #0d6efd;
+}
+
+.detailsBtn:hover {
+  background: #f0f7ff;
+}
+
+.updateBtn {
+  color: #10b981;
+}
+
+.updateBtn:hover {
+  background: #e8f5f1;
+}
+
+.deleteBtn {
+  color: #dc3545;
+}
+
+.deleteBtn:hover {
+  background: #fff5f5;
+}
+
+/* ==================== MODAL BASE ==================== */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* ==================== DELETE MODAL ==================== */
+
+.modalContent {
+  background: #ffffff;
+  border-radius: 8px;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.modalClose:hover {
+  background: #f8f9fa;
+  color: #212529;
+}
+
+.modalBody {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.warningIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.modalBody p {
+  margin: 0.5rem 0;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.modalBody strong {
+  color: #212529;
+  font-weight: 600;
+}
+
+.warningText {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.modalFooter {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #dee2e6;
+  background: #f8f9fa;
+}
+
+.modalBtn {
+  flex: 1;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cancelBtn {
+  background: #ffffff;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: #e9ecef;
+}
+
+.confirmBtn {
+  background: #dc3545;
+  color: #ffffff;
+}
+
+.confirmBtn:hover:not(:disabled) {
+  background: #bb2d3b;
+}
+
+.modalBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==================== EDIT MODAL ==================== */
+
+.premiumEditModal {
+  background: #ffffff;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 95%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.premiumModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: #10b981;
+  color: #ffffff;
+}
+
+.modalHeaderContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modalIcon {
+  font-size: 1.5rem;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.modalSubtitle {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.premiumCloseBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.premiumCloseBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.premiumModalBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  background: #f8f9fa;
+}
+
+/* ==================== SECTIONS ==================== */
+
+.premiumSection {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #dee2e6;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.sectionIcon {
+  font-size: 1.25rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+/* ==================== TOGGLE SWITCHES ==================== */
+
+.featuresToggleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.toggleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.toggleLabelWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.toggleIcon {
+  font-size: 1.125rem;
+}
+
+.toggleLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+/* Toggle Switch Component */
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ced4da;
+  transition: 0.2s;
+  border-radius: 24px;
+}
+
+.toggleSlider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+  background-color: #10b981;
+}
+
+.toggleSwitch input:checked + .toggleSlider::before {
+  transform: translateX(20px);
+}
+
+.toggleSwitch input:focus + .toggleSlider {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* ==================== PRICING TYPE TOGGLE ==================== */
+
+.pricingTypeToggle {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.pricingTypeToggle label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #495057;
+  cursor: pointer;
+}
+
+.pricingTypeToggle input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #10b981;
+}
+
+/* ==================== FORM INPUTS ==================== */
+
+.premiumInputWrapper {
+  margin-bottom: 1.25rem;
+}
+
+.premiumLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.premiumInput {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #212529;
+  background: #ffffff;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.premiumInput:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.premiumInput::placeholder {
+  color: #adb5bd;
+}
+
+/* Input with Icon */
+.inputWithIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 0.875rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.inputWithIcon .premiumInput {
+  padding-left: 2rem;
+}
+
+/* Insurance Grid */
+.insuranceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+/* ==================== FILE UPLOAD ==================== */
+
+.fileInputHidden {
+  display: none;
+}
+
+.fileUploadArea {
+  margin-top: 0.5rem;
+}
+
+.fileUploadLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  background: #f8f9fa;
+  border: 1px dashed #ced4da;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.fileUploadLabel:hover {
+  background: #e9ecef;
+  border-color: #10b981;
+}
+
+.uploadIcon {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+
+.uploadText {
+  font-size: 0.875rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Image Preview */
+.premiumImagePreview {
+  margin-top: 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+.premiumImagePreview img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+  background: #f8f9fa;
+}
+
+/* ==================== MODAL FOOTER ==================== */
+
+.premiumModalFooter {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #dee2e6;
+  background: #ffffff;
+}
+
+.premiumBtn {
+  flex: 1;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.premiumBtnCancel {
+  background: #ffffff;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.premiumBtnCancel:hover:not(:disabled) {
+  background: #e9ecef;
+}
+
+.premiumBtnSave {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.premiumBtnSave:hover:not(:disabled) {
+  background: #0d9668;
+}
+
+.premiumBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .carsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .featuresToggleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .insuranceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .myCarsPage {
+    padding: 1rem;
+  }
+
+  .premiumEditModal {
+    width: 98%;
+    max-height: 95vh;
+  }
+
+  .premiumModalHeader {
+    padding: 1.25rem;
+  }
+
+  .modalTitle {
+    font-size: 1.125rem;
+  }
+
+  .premiumModalBody {
+    padding: 1rem;
+  }
+
+  .premiumSection {
+    padding: 1.25rem;
+  }
+
+  .carActions {
+    grid-template-columns: 1fr;
+  }
+
+  .actionBtn {
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .actionBtn:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader h2 {
+    font-size: 1.5rem;
+  }
+
+  .modalHeaderContent {
+    gap: 0.75rem;
+  }
+
+  .modalIcon {
+    font-size: 1.25rem;
+  }
+
+  .modalTitle {
+    font-size: 1rem;
+  }
+
+  .modalSubtitle {
+    font-size: 0.8125rem;
+  }
+}

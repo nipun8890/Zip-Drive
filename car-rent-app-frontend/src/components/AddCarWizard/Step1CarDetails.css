@@ -1,0 +1,28 @@
+/* Step1CarDetails.css */
+
+textarea {
+  border: 2px solid #e2e8f0; /* soft gray border */
+  border-radius: 12px; /* smooth rounded corners */
+  padding: 12px 14px;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+
+  background: #ffffff;
+  transition: all 0.25s ease-in-out;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  resize: vertical; /* allow resize only vertically */
+}
+
+textarea::placeholder {
+  color: #9ca3af; /* Tailwind gray-400 */
+  font-style: italic;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #2563eb; /* Tailwind blue-600 */
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); /* subtle focus glow */
+  background: #f9fafb; /* light background on focus */
+}

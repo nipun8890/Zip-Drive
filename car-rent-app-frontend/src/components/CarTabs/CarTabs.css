@@ -1,0 +1,280 @@
+/* CarTabs.css */
+
+.car-tabs-container {
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: "Poppins", sans-serif;
+  padding: 0 1rem;
+}
+
+/* Tabs Header */
+.tabs-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  margin: 0 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: normal;
+  color: #888;
+  border-bottom: 2px solid transparent;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.tab-button:hover {
+  color: #007bff;
+}
+
+.tab-button.active {
+  font-weight: bold;
+  color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+/* Tab Content */
+.tab-content {
+  min-height: 180px;
+  padding: 10px 0;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Desktop & tablet: 3 columns */
+  gap: 20px 30px;
+}
+
+.feature-column {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 15px;
+  padding: 4px 0;
+}
+
+.feature-item.active {
+  color: green;
+}
+
+.feature-item.inactive {
+  color: red;
+}
+
+.feature-icon {
+  width: 20px;
+  display: inline-block;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.feature-name {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Description and Review Content */
+.tab-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+  padding: 0 10px;
+  margin: 0;
+}
+
+/* Tablet Styles (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .car-tabs-container {
+    margin: 30px auto;
+  }
+
+  .features-grid {
+    gap: 15px 25px;
+  }
+
+  .feature-item {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .feature-name {
+    font-size: 13px;
+  }
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .car-tabs-container {
+    margin: 20px auto;
+    padding: 0 0.5rem;
+  }
+
+  .tabs-header {
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .tab-button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 70px;
+  }
+
+  .tab-content {
+    min-height: 150px;
+    padding: 5px 0;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* Mobile: 2 columns only */
+    gap: 12px 15px;
+  }
+
+  .feature-item {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .feature-name {
+    font-size: 12px;
+  }
+
+  .tab-description {
+    font-size: 14px;
+    padding: 0 5px;
+  }
+}
+
+/* Small Mobile Styles (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .car-tabs-container {
+    margin: 15px auto;
+    padding: 0 0.25rem;
+  }
+
+  .tabs-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tab-button {
+    width: 100%;
+    max-width: 200px;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+
+  .tab-button:hover,
+  .tab-button.active {
+    background-color: #f8f9fa;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for small mobile */
+    gap: 8px 10px;
+  }
+
+  .feature-item {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .feature-icon {
+    width: 15px;
+    font-size: 12px;
+  }
+
+  .feature-name {
+    font-size: 11px;
+  }
+
+  .tab-description {
+    font-size: 13px;
+    padding: 0;
+  }
+}
+
+/* Extra Small Mobile (max-width: 320px) */
+@media screen and (max-width: 320px) {
+  .car-tabs-container {
+    margin: 10px auto;
+  }
+
+  .tab-button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columns on extra small screens */
+    gap: 5px 8px;
+  }
+
+  .feature-item {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .feature-icon {
+    width: 12px;
+    font-size: 10px;
+  }
+
+  .feature-name {
+    font-size: 10px;
+  }
+
+  .tab-description {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .car-tabs-container {
+    margin: 10px auto;
+  }
+
+  .tabs-header {
+    margin-bottom: 10px;
+  }
+
+  .tab-content {
+    min-height: 100px;
+  }
+
+  .features-grid {
+    gap: 8px 15px;
+  }
+
+  .feature-item {
+    margin-bottom: 4px;
+  }
+}

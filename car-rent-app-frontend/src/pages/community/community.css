@@ -1,0 +1,92 @@
+.community-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  padding: 56px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.community-card {
+  width: 700px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(60, 60, 60, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 36px;
+}
+
+.community-image-container {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.community-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.community-meta {
+  width: 100%;
+  text-align: center;
+  color: #368bfa;
+  font-size: 15px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.community-title {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  margin: 20px 0 12px 0;
+  color: #222;
+}
+
+.community-excerpt {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  max-width: 94%;
+  margin: 0 auto 12px auto;
+  line-height: 1.7;
+}
+
+.community-btn {
+  background: #268cff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 11px 36px;
+  cursor: pointer;
+  transition: background 0.19s;
+  display: block;
+  margin: 0 auto;
+}
+
+.community-btn:hover {
+  background: #135ba1;
+}
+
+@media (max-width: 820px) {
+  .community-card {
+    width: 98vw;
+    padding-bottom: 32px;
+  }
+  .community-img {
+    height: 260px;
+  }
+}

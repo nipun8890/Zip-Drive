@@ -1,0 +1,533 @@
+/* Main Container */
+.availability-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Header */
+.availability-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.availability-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.availability-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Triple Toggle Switch */
+.availability-toggle-container {
+  margin-bottom: 32px;
+}
+
+.availability-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.availability-toggle-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 8px;
+  background-color: #f3f4f6;
+  border-radius: 16px;
+}
+
+.availability-toggle-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.availability-toggle-button:hover {
+  background-color: rgba(1, 210, 142, 0.1);
+}
+
+.availability-toggle-button.active {
+  background-color: #01d28e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(1, 210, 142, 0.3);
+}
+
+.availability-toggle-icon {
+  font-size: 28px;
+}
+
+.availability-toggle-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Form Groups */
+.availability-form-group {
+  margin-bottom: 24px;
+}
+
+.availability-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Input Fields */
+.availability-input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.availability-input:focus {
+  border-color: #01d28e;
+  box-shadow: 0 0 0 3px rgba(1, 210, 142, 0.15);
+}
+
+.availability-input:hover {
+  border-color: #01d28e;
+}
+
+/* Location Input */
+.availability-location-input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.availability-location-input {
+  flex: 1;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.availability-location-input:hover {
+  border-color: #01d28e;
+  box-shadow: 0 0 0 3px rgba(1, 210, 142, 0.15);
+  background-color: #f0fdf7;
+}
+
+.availability-location-button {
+  padding: 14px 20px;
+  font-size: 20px;
+  border: 2px solid #01d28e;
+  border-radius: 12px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.availability-location-button:hover {
+  background-color: #01d28e;
+  transform: scale(1.05);
+}
+
+.availability-location-preview {
+  margin-top: 8px;
+  padding: 12px;
+  background-color: #f0fdf7;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #059669;
+  border: 1px solid #d1fae5;
+}
+
+/* Sections */
+.availability-section {
+  margin-bottom: 32px;
+  padding: 24px;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
+}
+
+.availability-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* Radio Group */
+.availability-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.availability-radio-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.availability-radio-label:hover {
+  border-color: #01d28e;
+  background-color: #f0fdf7;
+}
+
+.availability-radio {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #01d28e;
+}
+
+.availability-radio-description {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.availability-nested-input {
+  margin-top: 12px;
+  margin-left: 32px;
+  padding-left: 16px;
+  border-left: 3px solid #01d28e;
+}
+
+.availability-help-text {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Form Actions */
+.availability-form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px solid #e5e7eb;
+}
+
+.availability-back-button {
+  flex: 1;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: white;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.availability-back-button:hover:not(:disabled) {
+  border-color: #01d28e;
+  background-color: #f0fdf7;
+  transform: translateY(-2px);
+}
+
+.availability-back-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.availability-next-button {
+  flex: 1;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background-color: #01d28e;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(1, 210, 142, 0.3);
+}
+
+.availability-next-button:hover:not(:disabled) {
+  background-color: #019c6b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(1, 210, 142, 0.4);
+}
+
+.availability-next-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Map Container */
+.availability-map-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Modal Header */
+.availability-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 24px;
+}
+
+.availability-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.availability-close-button {
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 8px;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.availability-close-button:hover {
+  color: #01d28e;
+  transform: scale(1.1);
+}
+
+.availability-modal-confirm-button {
+  width: calc(100% - 48px);
+  margin: 16px 24px 24px 24px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background-color: #01d28e;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.availability-modal-confirm-button:hover {
+  background-color: #019c6b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(1, 210, 142, 0.4);
+}
+
+/* Location Modal Styles (matching SearchedCars) */
+.location-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.location-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.location-modal.map-modal {
+  max-width: 800px;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.location-modal-header {
+  background: linear-gradient(135deg, #01d28e 0%, #018f61 100%);
+  color: white;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.location-modal-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.location-modal-header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.location-modal-body {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fafafa;
+}
+
+.location-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.location-option-btn:hover:not(:disabled) {
+  border-color: #01d28e;
+  background: #f0fdf7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(1, 210, 142, 0.2);
+}
+
+.option-icon {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0fdf7;
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.location-option-btn:hover:not(:disabled) .option-icon {
+  background: #01d28e;
+  transform: scale(1.1);
+}
+
+.option-content h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.option-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .availability-container {
+    padding: 20px;
+  }
+
+  .availability-title {
+    font-size: 24px;
+  }
+
+  .availability-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-toggle-wrapper {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .availability-toggle-button {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .availability-form-actions {
+    flex-direction: column;
+  }
+
+  .location-modal {
+    max-width: 100%;
+    margin: 0 10px;
+  }
+
+  .location-modal-header {
+    padding: 24px 20px;
+  }
+
+  .location-option-btn {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .option-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .availability-location-input-wrapper {
+    flex-direction: column;
+  }
+
+  .availability-location-button {
+    width: 100%;
+  }
+}

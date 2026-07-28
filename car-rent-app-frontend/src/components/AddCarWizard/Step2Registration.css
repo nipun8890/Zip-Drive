@@ -1,0 +1,50 @@
+/* --- Step2 Registration Toggle Switch Styles --- */
+
+.step2-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* More balanced spacing */
+  margin-top: 8px;
+}
+
+.step2-toggle-label {
+  color: #1e293b; /* Darker for readability */
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Toggle Switch */
+.step2-toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: #f8fafc;
+  border: 2px solid #3b82f6; /* Tailwind blue-500 */
+  border-radius: 20px;
+  transition: background 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+}
+
+.step2-toggle-switch:checked {
+  background: #22c55e; /* Tailwind green-500 */
+  border-color: #22c55e;
+}
+
+.step2-toggle-switch::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 1px;
+  left: 1px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease;
+}
+
+.step2-toggle-switch:checked::before {
+  transform: translateX(24px);
+}

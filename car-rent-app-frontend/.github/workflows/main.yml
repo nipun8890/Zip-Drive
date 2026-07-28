@@ -1,0 +1,61 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches:
+      - main # or your production branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy and build on EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            APP_DIR=~/car-rent-app-frontend
+
+            # Ensure the directory exists
+            mkdir -p $APP_DIR
+
+            # Remove existing files
+            rm -rf $APP_DIR/*
+
+            # Clone repo if not present, otherwise pull latest
+            if [ ! -d "$APP_DIR/.git" ]; then
+              git clone https://github.com/Chetanya2001/car-rent-app-frontend.git $APP_DIR
+            else
+              cd $APP_DIR
+              git reset --hard
+              git pull origin main
+            fi
+
+            # Write .env file from secret (must use REACT_APP_ prefix)
+            cat <<EOF > $APP_DIR/.env
+            ${{ secrets.FRONTEND_ENV_FILE }}
+            EOF
+
+            # Install dependencies and build React app
+            cd $APP_DIR
+            npm install
+            npm run build
+
+            # Deploy build to NGINX root
+            sudo rm -rf /usr/share/nginx/html/*
+            sudo cp -r $APP_DIR/dist/* /usr/share/nginx/html/
+            sudo chown -R www-data:www-data /usr/share/nginx/html
+            sudo chmod -R 755 /usr/share/nginx/html
+
+            # Reload NGINX
+            sudo systemctl reload nginx
+
+            # Verify deployment
+            ls -l /usr/share/nginx/html

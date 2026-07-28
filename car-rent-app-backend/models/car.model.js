@@ -1,0 +1,104 @@
+const { DataTypes } = require("sequelize");
+module.exports = (sequelize) => {
+  const Car = sequelize.define(
+    "Car",
+    {
+      make_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+
+      model_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+
+      variant_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      year: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      kms_driven: {
+        type: DataTypes.INTEGER,
+        allowNull: true, // optional at creation
+        defaultValue: 0,
+      },
+      car_mode: {
+        type: DataTypes.ENUM("selfdrive", "intercity", "both"),
+        allowNull: false,
+        defaultValue: "selfdrive",
+      },
+      status: {
+        type: DataTypes.ENUM(
+          "pending",
+          "approved",
+          "rejected",
+          "active",
+          "inactive",
+        ),
+        defaultValue: "pending", // ✅ default when new car is added
+      },
+      price_per_hour: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: true, // optional
+        defaultValue: null,
+      },
+      price_per_km: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: true,
+        defaultValue: null,
+      },
+      available_from: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: null,
+      },
+      available_till: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: null,
+      },
+      description: {
+        type: DataTypes.TEXT, // ✅ allows long description
+        allowNull: true,
+        defaultValue: null,
+      },
+      is_visible: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+      selfdrive_drop_policy: {
+        type: DataTypes.ENUM("not_available", "flexible", "fixed"),
+        allowNull: false,
+        defaultValue: "not_available",
+      },
+
+      selfdrive_drop_amount: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: true,
+        defaultValue: null,
+      },
+    },
+    { timestamps: true },
+  );
+
+  Car.associate = (models) => {
+    Car.belongsTo(models.User, { as: "host", foreignKey: "host_id" });
+    Car.hasOne(models.CarDocument, { foreignKey: "car_id" });
+    Car.hasMany(models.Booking, { foreignKey: "car_id" });
+    Car.hasOne(models.CarLocation, { foreignKey: "car_id" });
+    Car.hasMany(models.CarPhoto, { foreignKey: "car_id", as: "photos" });
+    Car.hasOne(models.CarFeatures, { foreignKey: "car_id", as: "features" });
+    Car.hasOne(models.CarStandards, { foreignKey: "car_id", as: "standards" });
+    Car.belongsTo(models.CarMake, { foreignKey: "make_id", as: "make" });
+    Car.belongsTo(models.CarModel, { foreignKey: "model_id", as: "model" });
+    Car.belongsTo(models.CarVariant, {
+      foreignKey: "variant_id",
+      as: "variant",
+    });
+  };
+  return Car;
+};

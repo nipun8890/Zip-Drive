@@ -1,0 +1,630 @@
+/* ==========================================================================
+   Book A Car Page - Main Layout & General
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+.book-car-container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: #f8fafc;
+  min-height: calc(100vh - 140px);
+}
+
+.car-details-section {
+  flex: 0 0 58%;
+  max-width: 58%;
+}
+
+.booking-section {
+  flex: 0 0 40%;
+  max-width: 40%;
+  position: sticky;
+  top: 24px;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   Left side - Back button, Car title, Carousel
+   ========================================================================== */
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: white;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.back-button:hover {
+  background-color: #1d4ed8;
+}
+
+.car-title {
+  font-size: 2.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+/* Carousel Styles */
+.carousel {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin-bottom: 32px;
+  background: #f1f5f9;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  display: block;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  font-size: 1.3rem;
+  color: #374151;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: 16px;
+}
+
+.next {
+  right: 16px;
+}
+
+.prev:hover,
+.next:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.prev:active,
+.next:active {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* ==========================================================================
+   Right side - Zip Your Trip Panel
+   ========================================================================== */
+
+.zip-trip-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.zip-trip-panel h3 {
+  margin: 0;
+  padding: 20px 24px;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #111827;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Date & Time Input Grid */
+.date-time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 24px;
+  background: white;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-block label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.input-block input[type="date"],
+.input-block input[type="time"] {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  color: #111827;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.input-block input[type="date"]:hover,
+.input-block input[type="time"]:hover {
+  border-color: #9ca3af;
+}
+
+.input-block input[type="date"]:focus,
+.input-block input[type="time"]:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Toggle Switches - iOS Style */
+.options-list {
+  padding: 0 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: white;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background-color: #10b981;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.slider:hover {
+  box-shadow: 0 0 0 4px rgba(203, 213, 225, 0.3);
+}
+
+input:checked + .slider:hover {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+/* Drop City Field */
+.drop-city-field {
+  padding: 0 24px 24px;
+  position: relative;
+}
+
+.drop-city-field select {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.drop-city-field select:hover {
+  border-color: #9ca3af;
+}
+
+.drop-city-field select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.map-icon {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.map-icon:hover {
+  color: #dc2626;
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Loading State */
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+/* ==========================================================================
+   Responsive Design - Mobile First Approach
+   ========================================================================== */
+
+/* Extra Large Desktops (1400px+) */
+@media (min-width: 1400px) {
+  .book-car-container {
+    padding: 40px 5%;
+    gap: 48px;
+  }
+
+  .car-details-section {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .booking-section {
+    flex: 0 0 38%;
+    max-width: 38%;
+  }
+}
+
+/* Large Desktops (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .book-car-container {
+    padding: 36px 4%;
+    gap: 40px;
+    max-width: 1300px;
+  }
+
+  .car-details-section {
+    flex: 0 0 58%;
+    max-width: 58%;
+  }
+
+  .booking-section {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+}
+
+/* Medium Desktops & Laptops (992px - 1199px) */
+@media (max-width: 1199px) {
+  .book-car-container {
+    padding: 32px 3%;
+    gap: 32px;
+  }
+
+  .car-title {
+    font-size: 1.9rem;
+  }
+
+  .carousel-image {
+    max-height: 420px;
+  }
+
+  .zip-trip-panel h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablets & iPads (768px - 991px) */
+@media (max-width: 991px) {
+  .book-car-container {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px 20px;
+  }
+
+  .car-details-section,
+  .booking-section {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .booking-section {
+    position: static;
+  }
+
+  .car-title {
+    font-size: 1.85rem;
+  }
+
+  .carousel-image {
+    max-height: 400px;
+  }
+
+  .date-time-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+/* Large Mobile & Small Tablets (576px - 767px) */
+@media (max-width: 767px) {
+  .book-car-container {
+    padding: 20px 16px;
+    gap: 24px;
+  }
+
+  .car-title {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+
+  .carousel {
+    margin-bottom: 24px;
+    border-radius: 10px;
+  }
+
+  .carousel-image {
+    max-height: 320px;
+  }
+
+  .prev,
+  .next {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .prev {
+    left: 12px;
+  }
+
+  .next {
+    right: 12px;
+  }
+
+  .date-time-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .zip-trip-panel h3 {
+    font-size: 1.2rem;
+    padding: 18px 20px;
+  }
+
+  .options-list {
+    padding: 0 20px 18px;
+    gap: 14px;
+  }
+
+  .option-row {
+    font-size: 1rem;
+  }
+
+  .drop-city-field {
+    padding: 0 20px 20px;
+  }
+}
+
+/* Small Mobile Devices (up to 575px) */
+@media (max-width: 575px) {
+  .book-car-container {
+    padding: 16px 12px;
+    gap: 20px;
+  }
+
+  .back-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .car-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .carousel {
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-image {
+    max-height: 260px;
+  }
+
+  .prev,
+  .next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .prev {
+    left: 8px;
+  }
+
+  .next {
+    right: 8px;
+  }
+
+  .zip-trip-panel h3 {
+    font-size: 1.1rem;
+    padding: 16px 18px;
+  }
+
+  .date-time-grid {
+    gap: 14px;
+    padding: 16px 18px;
+  }
+
+  .input-block label {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .input-block input[type="date"],
+  .input-block input[type="time"],
+  .drop-city-field select {
+    padding: 9px 10px;
+    font-size: 0.95rem;
+  }
+
+  .options-list {
+    padding: 0 18px 16px;
+    gap: 12px;
+  }
+
+  .option-row {
+    font-size: 0.95rem;
+  }
+
+  .switch {
+    width: 48px;
+    height: 26px;
+  }
+
+  .slider:before {
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+
+  .drop-city-field {
+    padding: 0 18px 18px;
+  }
+
+  .map-icon {
+    right: 44px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra Small Mobile (up to 380px) */
+@media (max-width: 380px) {
+  .book-car-container {
+    padding: 12px 10px;
+  }
+
+  .car-title {
+    font-size: 1.35rem;
+  }
+
+  .carousel-image {
+    max-height: 220px;
+  }
+
+  .prev,
+  .next {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .zip-trip-panel h3 {
+    font-size: 1rem;
+    padding: 14px 16px;
+  }
+
+  .date-time-grid {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .options-list {
+    padding: 0 16px 14px;
+  }
+
+  .drop-city-field {
+    padding: 0 16px 16px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .back-button,
+  .prev,
+  .next {
+    display: none;
+  }
+
+  .book-car-container {
+    background: white;
+  }
+}
